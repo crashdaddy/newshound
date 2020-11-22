@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import { parseString } from 'xml2js';
+import {Paper} from '@material-ui/core';
 
 class App extends Component {
   constructor(props) {
@@ -144,9 +145,9 @@ componentDidMount() {
                 	{(data && data.length > 0) &&
 			data.map((item) => {
 				return (
-					<div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
+					<Paper elevation={3} style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
             <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px'}} />
-            {item.title}</a><br/></div>
+            {item.title}</a><br/></Paper>
 				)
 			})
 		}
@@ -156,9 +157,9 @@ componentDidMount() {
               {(HuffPostData && HuffPostData.length > 0) &&
   HuffPostData.map((item) => {
     return (
-      <div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
+      <Paper elevation={3}  style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["enclosure"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px'}} />
-        {item.title}</a><br/></div>
+        {item.title}</a><br/></Paper>
     )
   })
 }
@@ -168,11 +169,11 @@ componentDidMount() {
               {(wsjData && wsjData.length > 0) &&
   wsjData.map((item) => {
     return (
-      <div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#9765A0',padding:'5px'}}>
+      <Paper elevation={3}  style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#9765A0',padding:'5px'}}>
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
         {item.title}</a><br/>
         <span style={{fontSize:'small'}}>{item.description}</span>
-        </div>
+        </Paper>
     )
   })
 }
@@ -182,25 +183,25 @@ componentDidMount() {
               {(dailyMailData && dailyMailData.length > 0) &&
   dailyMailData.map((item) => {
     return (
-      <div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'red',padding:'5px'}}>
+      <Paper elevation={3}  style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'red',padding:'5px'}}>
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px'}} />
-        {item.title}</a><br/></div>
+        {item.title}</a><br/></Paper>
     )
   })
 }
          </div>
          <div style={{float:'left',textAlign:'right',marginTop:'80px',width:'18%',marginLeft:'5px'}}>
               
-              {(dailyMailData && dailyMailData.length > 0) &&
+              {(nypData && nypData.length > 0) &&
   nypData.map((item) => {
     return (
-      <div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'red',padding:'5px'}}>
+      <Paper elevation={3} style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'red',padding:'5px'}}>
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
           {/* <img src={item["media:thumbnail"][0]["$"].url} alt="" style={{float:'left',width:'100px'}} />  */}
         {item.title}</a><br/>
         <div style={{fontSize:'small'}} dangerouslySetInnerHTML={{ __html: item.description}}></div>
         
-        </div>
+        </Paper>
     )
   })
 }
