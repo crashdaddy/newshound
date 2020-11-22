@@ -138,14 +138,14 @@ componentDidMount() {
       const HuffPostData = this.state.HuffPostData;
     return (
       
-          <div style={{width:"90%",marginRight:'auto',marginLeft:'auto',display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'baseline'}}>
+          <div style={{width:"90%",marginRight:'auto',marginLeft:'auto',display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'flex-start'}}>
             <div style={{textAlign:'center',marginTop:'80px',width:'18%',float:'left'}}>
               
                 	{(data && data.length > 0) &&
 			data.map((item) => {
 				return (
 					<div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
-            <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100px',marginRight:'5px'}} />
+            <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px'}} />
             {item.title}</a><br/></div>
 				)
 			})
@@ -157,7 +157,7 @@ componentDidMount() {
   HuffPostData.map((item) => {
     return (
       <div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
-        <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["enclosure"][0]["$"].url} alt="" style={{float:'left',width:'100px',marginRight:'5px'}} />
+        <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["enclosure"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px'}} />
         {item.title}</a><br/></div>
     )
   })
@@ -183,7 +183,7 @@ componentDidMount() {
   dailyMailData.map((item) => {
     return (
       <div style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'red',padding:'5px'}}>
-        <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100px',marginRight:'5px'}} />
+        <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px'}} />
         {item.title}</a><br/></div>
     )
   })
