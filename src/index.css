@@ -3,9 +3,14 @@
   src: url("Montserrat-Black.otf")
 }
 
+@font-face {
+  font-family: "sebneuenews";
+  src: url("SebneueNews-0Xo9.otf")
+}
+
 body {
   margin: 0;
-  font-family: "montserrat";
+  font-family: "sebneuenews";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
