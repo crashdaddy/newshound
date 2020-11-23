@@ -42,7 +42,7 @@ export default function ButtonAppBar() {
             <div style={{width:'18%',backgroundColor:'#9DC8EB',border:'1px solid black'}}>&nbsp;</div>
             <div style={{width:'18%',backgroundColor:'#9765A0',border:'1px solid black'}}>&nbsp;</div>
             <div style={{width:'18%',backgroundColor:'#CB9898',border:'1px solid black'}}>&nbsp;</div>
-            <div style={{width:'18%',backgroundColor:'#FF0000',border:'1px solid black'}}>&nbsp;</div>
+            <div style={{width:'18%',backgroundColor:'#CB2126',border:'1px solid black'}}>&nbsp;</div>
              </div>
       
           {/* <Button color="inherit">Login</Button> */}
