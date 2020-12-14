@@ -16,11 +16,11 @@ class App extends Component {
   }
 }
 
- alternetURL = "https://cors-anywhere.herokuapp.com/https://www.alternet.org/feeds/feed.rss";
- dailyMailURL = "https://cors-anywhere.herokuapp.com/https://www.dailymail.co.uk/news/index.rss";
- wsjURL = "https://cors-anywhere.herokuapp.com/https://feeds.a.dj.com/rss/RSSOpinion.xml";
- nypURL = "https://cors-anywhere.herokuapp.com/https://nypost.com/news/feed/";
- HuffPostURL = "https://cors-anywhere.herokuapp.com/https://www.huffpost.com/section/politics/feed";
+ alternetURL = "https://corsroute.herokuapp.com/https://www.alternet.org/feeds/feed.rss";
+ dailyMailURL = "https://corsroute.herokuapp.com/https://www.dailymail.co.uk/news/index.rss";
+ wsjURL = "https://corsroute.herokuapp.com/https://feeds.a.dj.com/rss/RSSOpinion.xml";
+ nypURL = "https://corsroute.herokuapp.com/https://nypost.com/news/feed/";
+ HuffPostURL = "https://corsroute.herokuapp.com/https://www.huffpost.com/section/politics/feed";
 
  getHuffPost = () => {
   var self=this;
@@ -150,7 +150,7 @@ componentDidMount() {
             {item.title}</a><br/>
             
           <div style={{width:"100%",textAlign:'left'}}>
-          <img src="AlterNet_logo.PNG"  style={{width:'80px',marginTop:'20px'}}/>
+          <img src="AlterNet_logo.PNG" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
           </Paper>
 				)
@@ -166,7 +166,7 @@ componentDidMount() {
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["enclosure"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px',marginBottom:'5px'}} />
         {item.title}</a><br/>
         <div style={{width:"100%",textAlign:'left'}}>
-          <img src="huffpost-logo.png"  style={{width:'80px',marginTop:'20px'}}/>
+          <img src="huffpost-logo.png" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
         </Paper>
     )
@@ -183,7 +183,7 @@ componentDidMount() {
         {item.title}</a><br/>
         <span style={{fontSize:'small'}}>{item.description}</span>
         <div style={{width:"100%",textAlign:'center'}}>
-          <img src="the-wall-st-journal.png"  style={{width:'80px',marginTop:'20px'}}/>
+          <img src="the-wall-st-journal.png" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
         </Paper>
     )
@@ -199,7 +199,7 @@ componentDidMount() {
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px',marginBottom:'5px'}} />
         {item.title}</a><br/>
         <div style={{width:"100%",textAlign:'right'}}>
-          <img src="dailymaillogo.jpg"  style={{width:'80px',marginTop:'20px'}}/>
+          <img src="dailymaillogo.jpg" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>    
       </Paper>
     )
@@ -217,7 +217,7 @@ componentDidMount() {
         {item.title}</a><br/>
         <div style={{fontSize:'small'}} dangerouslySetInnerHTML={{ __html: item.description}}></div>
         <div style={{width:"100%",textAlign:'right'}}>
-          <img src="NY_Post_logo.jpg"  style={{width:'80px',marginTop:'20px'}}/>
+          <img src="NY_Post_logo.jpg" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
         </Paper>
     )

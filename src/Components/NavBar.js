@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { Link } from 'react-router-dom'
 
@@ -30,7 +29,7 @@ export default function ButtonAppBar() {
         <Toolbar>
           <Link to='/About'>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <img src='dogLogo.png' style={{width:'50px'}} />
+            <img src='dogLogo.png' alt="" style={{width:'50px'}} />
           </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title}>
