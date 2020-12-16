@@ -256,7 +256,7 @@ if (leanLeft===0) { this.getHuffPost();}
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
           {/* <img src={item["media:thumbnail"][0]["$"].url} alt="" style={{float:'left',width:'100px'}} />  */}
         {item.title}</a><br/>
-        {/* <div style={{fontSize:'small',overflow:"hidden",whiteSpace:"wrap"}} dangerouslySetInnerHTML={{ __html: item["content:encoded"]}}></div> */}
+        <div style={{fontSize:'small',overflow:"hidden",whiteSpace:"wrap"}} dangerouslySetInnerHTML={{ __html: item["content:encoded"]}}></div>
         <div style={{width:"100%",textAlign:'left'}}>
           <img src="democracyNowLogo.png" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
