@@ -15,105 +15,35 @@ class App extends Component {
 
     this.state = {
       alternetData: [],
-      dailyMailData: [],
-      wsjData: [],
-      nypData: [],
+      democracyNowData: [],
       HuffPostData: [],
-      democracyNowData: []
+      buzzfeedData: [],
+            wsjData: [],
+      dailyMailData: [],
+      nypData: [],
+      theBlazeData: []
   }
 }
 
  alternetURL = "https://corsroute.herokuapp.com/https://www.alternet.org/feeds/feed.rss";
- dailyMailURL = "https://corsroute.herokuapp.com/https://www.dailymail.co.uk/news/index.rss";
- wsjURL = "https://corsroute.herokuapp.com/https://feeds.a.dj.com/rss/RSSOpinion.xml";
- nypURL = "https://corsroute.herokuapp.com/https://nypost.com/news/feed/";
  democracyNowURL = "https://corsroute.herokuapp.com/https://www.democracynow.org/democracynow.rss";
- HuffPostURL = "https://corsroute.herokuapp.com/https://www.huffpost.com/section/politics/feed";
+  HuffPostURL = "https://corsroute.herokuapp.com/https://www.huffpost.com/section/politics/feed";
+ buzzfeedURL = "https://corsroute.herokuapp.com/https://www.buzzfeed.com/politics.xml";
+ wsjURL = "https://corsroute.herokuapp.com/https://feeds.a.dj.com/rss/RSSOpinion.xml";
+ dailyMailURL = "https://corsroute.herokuapp.com/https://www.dailymail.co.uk/news/index.rss";
+ nypURL = "https://corsroute.herokuapp.com/https://nypost.com/news/feed/";
+ theBlazeURL = "https://corsroute.herokuapp.com/https://www.theblaze.com/feeds/feed.rss"
 
- getHuffPost = () => {
-  var self=this;
- Axios.get(this.HuffPostURL, {
-   "Content-Type": "application/xml; charset=utf-8",
-   headers: {
-    "X-Requested-With": "XMLHttpRequest",
-    'Access-Control-Allow-Origin': '*'
-  }
- })
-   .then((responseText) => {
-      parseString(responseText.data, function(err, result){
-        self.setState({HuffPostData:result.rss.channel[0].item})
-     //  In case you want to see the whole thing.
-     });
-   })
-   .catch((e) => {
-   //  this.setState({ error: e.toJSON() })
-     console.log(e);
-   });
-}
-
- getnyp = () => {
-  var self=this;
- Axios.get(this.nypURL, {
-   "Content-Type": "application/xml; charset=utf-8",
-   headers: {
-    "X-Requested-With": "XMLHttpRequest",
-    'Access-Control-Allow-Origin': '*'
-  }
- })
-   .then((responseText) => {
-      parseString(responseText.data, function(err, result){
-        self.setState({nypData:result.rss.channel[0].item})
-     });
-   })
-   .catch((e) => {
-   //  this.setState({ error: e.toJSON() })
-     console.log(e);
-   });
-}
-
-
+ // far left sources
 getAlternet = () => {
-   var self=this;
-  Axios.get(this.alternetURL, {
-    "Content-Type": "application/xml; charset=utf-8"
-  })
-    .then((responseText) => {
-       parseString(responseText.data, function(err, result){
-         self.setState({alternetData:result.rss.channel[0].item})
-      });
-    })
-    .catch((e) => {
-    //  this.setState({ error: e.toJSON() })
-      console.log(e);
-    });
-}
-
-getDailyMail = () => {
   var self=this;
- Axios.get(this.dailyMailURL, {
+ Axios.get(this.alternetURL, {
    "Content-Type": "application/xml; charset=utf-8"
  })
    .then((responseText) => {
       parseString(responseText.data, function(err, result){
-        self.setState({dailyMailData:result.rss.channel[0].item})
-       });
-   })
-   .catch((e) => {
-   //  this.setState({ error: e.toJSON() })
-     console.log(e);
-   });
-}
-
-
-getWSJ = () => {
-  var self=this;
- Axios.get(this.wsjURL, {
-   "Content-Type": "application/xml; charset=utf-8"
- })
-   .then((responseText) => {
-      parseString(responseText.data, function(err, result){
-        self.setState({wsjData:result.rss.channel[0].item})
-       });
+        self.setState({alternetData:result.rss.channel[0].item})
+     });
    })
    .catch((e) => {
    //  this.setState({ error: e.toJSON() })
@@ -143,24 +73,162 @@ getDemocracyNow = () => {
    });
 }
 
+// lean left sources
+getBuzzfeed = () => {
+  var self=this;
+ Axios.get(this.buzzfeedURL, {
+   "Content-Type": "application/xml; charset=utf-8",
+   headers: {
+    "X-Requested-With": "XMLHttpRequest",
+    'Access-Control-Allow-Origin': '*'
+  }
+ })
+   .then((responseText) => {
+      parseString(responseText.data, function(err, result){
+        self.setState({buzzfeedData:result.rss.channel[0].item})
+     //  In case you want to see the whole thing.
+     });
+   })
+   .catch((e) => {
+   //  this.setState({ error: e.toJSON() })
+     console.log(e);
+   });
+}
+ 
+ getHuffPost = () => {
+  var self=this;
+ Axios.get(this.HuffPostURL, {
+   "Content-Type": "application/xml; charset=utf-8",
+   headers: {
+    "X-Requested-With": "XMLHttpRequest",
+    'Access-Control-Allow-Origin': '*'
+  }
+ })
+   .then((responseText) => {
+      parseString(responseText.data, function(err, result){
+        self.setState({HuffPostData:result.rss.channel[0].item})
+     //  In case you want to see the whole thing.
+     });
+   })
+   .catch((e) => {
+   //  this.setState({ error: e.toJSON() })
+     console.log(e);
+   });
+}
+
+// center bias sources
+
+
+getWSJ = () => {
+  var self=this;
+ Axios.get(this.wsjURL, {
+   "Content-Type": "application/xml; charset=utf-8"
+ })
+   .then((responseText) => {
+      parseString(responseText.data, function(err, result){
+        self.setState({wsjData:result.rss.channel[0].item})
+       });
+   })
+   .catch((e) => {
+   //  this.setState({ error: e.toJSON() })
+     console.log(e);
+   });
+}
+
+// lean right sources
+
+getDailyMail = () => {
+  var self=this;
+ Axios.get(this.dailyMailURL, {
+   "Content-Type": "application/xml; charset=utf-8"
+ })
+   .then((responseText) => {
+      parseString(responseText.data, function(err, result){
+        self.setState({dailyMailData:result.rss.channel[0].item})
+       });
+   })
+   .catch((e) => {
+   //  this.setState({ error: e.toJSON() })
+     console.log(e);
+   });
+}
+
+// far right sources
+
+ getnyp = () => {
+  var self=this;
+ Axios.get(this.nypURL, {
+   "Content-Type": "application/xml; charset=utf-8",
+   headers: {
+    "X-Requested-With": "XMLHttpRequest",
+    'Access-Control-Allow-Origin': '*'
+  }
+ })
+   .then((responseText) => {
+      parseString(responseText.data, function(err, result){
+        self.setState({nypData:result.rss.channel[0].item})
+     });
+   })
+   .catch((e) => {
+   //  this.setState({ error: e.toJSON() })
+     console.log(e);
+   });
+}
+
+getTheBlaze = () => {
+  var self=this;
+ Axios.get(this.theBlazeURL, {
+   "Content-Type": "application/xml; charset=utf-8",
+   headers: {
+    "X-Requested-With": "XMLHttpRequest",
+    'Access-Control-Allow-Origin': '*'
+  }
+ })
+   .then((responseText) => {
+      parseString(responseText.data, function(err, result){
+        self.setState({theBlazeData:result.rss.channel[0].item})
+        
+     });
+   })
+   .catch((e) => {
+   //  this.setState({ error: e.toJSON() })
+     console.log(e);
+   });
+}
+
+
+
+
+
 componentDidMount() {
 let farLeft= getRandomInt(0,1);
 if (farLeft===0) {
  this.getAlternet();
 } else this.getDemocracyNow();
- this.getDailyMail();
+let leanLeft=getRandomInt(0,1);
+if (leanLeft===0) { this.getHuffPost();}
+  else this.getBuzzfeed();
  this.getWSJ();
- this.getnyp();
- this.getHuffPost();
+ this.getDailyMail();
+ let farRight = getRandomInt(0,1);
+ farRight=1;
+ if (farRight===0) {this.getnyp();} else this.getTheBlaze();
+
 }
 
     render() {
       const data = this.state.alternetData; //parser.parseString(this.state.data);
-      const dailyMailData = this.state.dailyMailData;
-      const wsjData = this.state.wsjData;
-      const nypData = this.state.nypData;
-      const HuffPostData = this.state.HuffPostData;
       const democracyNowData = this.state.democracyNowData;
+
+      const HuffPostData = this.state.HuffPostData;
+      const buzzfeedData = this.state.buzzfeedData;
+
+      const wsjData = this.state.wsjData;
+
+      const dailyMailData = this.state.dailyMailData;
+
+      const nypData = this.state.nypData;
+      const theBlazeData = this.state.theBlazeData;
 
     return (
       
@@ -189,7 +257,7 @@ if (farLeft===0) {
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
           {/* <img src={item["media:thumbnail"][0]["$"].url} alt="" style={{float:'left',width:'100px'}} />  */}
         {item.title}</a><br/>
-        <div style={{fontSize:'small',overflow:"hidden",whiteSpace:"wrap"}} dangerouslySetInnerHTML={{ __html: item["content:encoded"]}}></div>
+        {/* <div style={{fontSize:'small',overflow:"hidden",whiteSpace:"wrap"}} dangerouslySetInnerHTML={{ __html: item["content:encoded"]}}></div> */}
         <div style={{width:"100%",textAlign:'left'}}>
           <img src="democracyNowLogo.png" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
@@ -208,6 +276,20 @@ if (farLeft===0) {
         {item.title}</a><br/>
         <div style={{width:"100%",textAlign:'left'}}>
           <img src="huffpost-logo.png" alt="" style={{width:'80px',marginTop:'20px'}}/>
+          </div>  
+        </Paper>
+    )
+  })
+}
+
+{(buzzfeedData && buzzfeedData.length > 0) &&
+  buzzfeedData.map((item) => {
+    return (
+      <Paper elevation={3}  style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#9DC8EB',padding:'5px'}}>
+        <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:thumbnail"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px',marginBottom:'5px'}} />
+        {item.title}</a><br/>
+        <div style={{width:"100%",textAlign:'left'}}>
+          <img src="BuzzFeed_News_Logo.png" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
         </Paper>
     )
@@ -251,16 +333,32 @@ if (farLeft===0) {
               
               {(nypData && nypData.length > 0) &&
   nypData.map((item) => {
+    console.log(item);
     return (
       <Paper elevation={3} style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#CB2126',padding:'5px'}}>
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
-          {/* <img src={item["media:thumbnail"][0]["$"].url} alt="" style={{float:'left',width:'100px'}} />  */}
+        {item["media:thumbnail"] && <img src={item["media:thumbnail"][0]["$"].url} alt="" style={{float:'left',width:'100%'}} /> }
         {item.title}</a><br/>
-        <div style={{fontSize:'small'}} dangerouslySetInnerHTML={{ __html: item.description}}></div>
+        <div style={{fontSize:'small',overflow:"hidden"}} dangerouslySetInnerHTML={{ __html: item.description}}></div>
         <div style={{width:"100%",textAlign:'right'}}>
           <img src="NY_Post_logo.jpg" alt="" style={{width:'80px',marginTop:'20px'}}/>
           </div>  
         </Paper>
+    )
+  })
+}
+
+{(theBlazeData && theBlazeData.length > 0) &&
+  theBlazeData.map((item) => {
+    return (
+      <Paper elevation={3}  style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#CB2126',padding:'5px'}}>
+        <div style={{overflow:"hidden"}}><a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
+          <img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px',marginBottom:'5px'}} />
+        {item.title}</a><br/></div>
+        <div style={{width:"100%",textAlign:'right'}}>
+          <img src="theBlazeLogo.jpg" alt="" style={{width:'80px',marginTop:'20px'}}/>
+          </div>    
+      </Paper>
     )
   })
 }

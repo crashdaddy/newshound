@@ -13,7 +13,7 @@ class About extends Component {
            <p style={{fontSize:'small',textDecoration:'italic'}}>
                Biases based on the following criteria:
            </p>   
-           <img src='MediaBiasChart.jpg' style={{width:'90%',marginTop:'40px'}} />
+           <img src='MediaBiasChart.jpg' alt = "" style={{width:'90%',marginTop:'40px'}} />
           </div>
         )
       }
