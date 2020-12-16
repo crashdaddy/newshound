@@ -211,7 +211,6 @@ if (leanLeft===0) { this.getHuffPost();}
  this.getWSJ();
  this.getDailyMail();
  let farRight = getRandomInt(0,1);
- farRight=1;
  if (farRight===0) {this.getnyp();} else this.getTheBlaze();
 
 }
