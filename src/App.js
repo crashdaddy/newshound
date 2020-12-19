@@ -238,7 +238,8 @@ if (leanLeft===0) { this.getHuffPost();}
 			data.map((item) => {
 				return (
 					<Paper elevation={3} style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#2E64A0',padding:'5px'}}>
-            <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}><img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px',marginBottom:'5px'}} />
+            <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
+             {item["media:content"] && <img src={item["media:content"][0]["$"].url} alt="" style={{float:'left',width:'100%',marginRight:'5px',marginBottom:'5px'}} /> }
             {item.title}</a><br/>
             
           <div style={{width:"100%",textAlign:'left'}}>
@@ -332,7 +333,7 @@ if (leanLeft===0) { this.getHuffPost();}
               
               {(nypData && nypData.length > 0) &&
   nypData.map((item) => {
-    console.log(item);
+    
     return (
       <Paper elevation={3} style={{fontSize:"large",textAlign:'left',marginTop:'40px',backgroundColor:'#CB2126',padding:'5px'}}>
         <a href={item.link} target="blank" style={{color:'white',textDecoration:'none'}}>
